@@ -8,3 +8,5 @@
 [Project Github Repo](https://github.com/robertm155/project2-th-rjs)   
 ​
 [Project Task board](https://github.com/robertm155/project2-th-rjs/projects)
+
+[Project Proposal](https://docs.google.com/document/d/19DVoboG2npnaXe4z5OHu-aay8R4h3RVr7vBbaFTn008/edit)
