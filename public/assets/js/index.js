@@ -11,6 +11,8 @@ createChara.on("click", () => {window.location.replace("/create");})
 
 $(".generateChara").on("click", () => {window.location.replace("/home");})
 
+$("#loginNav").on("click", () => {window.location.replace("/signup");})
+
 //$(".custom-select").click( () => console.log($(".custom-select").val()))
 
 $(".custom-select").click( () => {
