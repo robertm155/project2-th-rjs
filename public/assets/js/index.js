@@ -9,6 +9,8 @@ titleScreen.on("click", () => {window.location.replace("/home");})
 
 createChara.on("click", () => {window.location.replace("/create");})
 
+$(".generateChara").on("click", () => {window.location.replace("/home");})
+
 //$(".custom-select").click( () => console.log($(".custom-select").val()))
 
 $(".custom-select").click( () => {
