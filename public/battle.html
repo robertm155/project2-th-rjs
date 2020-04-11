@@ -6,10 +6,17 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/style.css" 
+    <link rel="stylesheet" href="./assets/css/style.css"> 
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container">
+          <a class="navbar-brand text-white" id="title-link">Leftovers the Game</a>
+        </div>
+      </nav>
 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="./assets/js/index.js"></script>
     <script>
     var config = {
         type: Phaser.AUTO,
@@ -31,19 +38,18 @@
 
     function preload ()
     {
-        //this.load.setBaseURL('http://labs.phaser.io');
         this.load.path = 'assets/';
 
-        this.load.image('background', 'bg/battleback1.png');
-        this.load.image('druid', 'sprites/enemies/druid.png');
-        this.load.image('player', 'sprites/player/herobase.png');
+        this.load.image('background', 'game-art/bg/battleback1.png');
+        this.load.image('druid', 'game-art/sprites/enemies/druid.png');
+        this.load.image('player', 'game-art/sprites/player/mage.png');
     }
 
     function create ()
     {
         this.add.image(400, 300, 'background');
-        this.add.image(600, 200, 'druid');
-        this.add.image(200, 400, 'player');
+        this.add.image(600, 300, 'druid');
+        this.add.image(200, 300, 'player');
     }
     </script>
 

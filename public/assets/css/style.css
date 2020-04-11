@@ -3,6 +3,7 @@
     src: url(../font/AncientModernTales-a7Po.ttf);
   }
 body {
-    background-color: rgb(0, 0, 0);
+    background-image: url("../game-art/bg/title-background-hi-res.png");
+    background-size: cover;
     font-family: fantasyFont;
 }
