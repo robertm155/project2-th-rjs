@@ -6,7 +6,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
 
-  app.get("/", function(req, res) {
+  app.get("/signup", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/members");
@@ -26,6 +26,19 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
+  });
+
+//Game HTML Routes
+  app.get("/home", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+  });
+
+  app.get("/game", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/battle.html"));
+  });
+
+  app.get("/create", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/create.html"));
   });
 
 };
