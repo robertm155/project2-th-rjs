@@ -28,4 +28,13 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
+//Game HTML Routes
+  app.get("/home", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+  });
+
+  app.get("/game", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/battle.html"));
+  });
+
 };
