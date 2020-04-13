@@ -3,16 +3,28 @@ var Unit = new Phaser.Class({
  
     initialize:
  
-    function Unit(scene, x, y, texture, frame, type, hp, damage) {
+    function Unit(scene, x, y, texture, frame, hp, strength, defense, speed) {
         Phaser.GameObjects.Sprite.call(this, scene, x, y, texture, frame)
-        this.type = type;
         this.maxHp = this.hp = hp;
-        this.damage = damage; // default damage                
+        this.strength = strength; // default damage 
+        this.defense = defense;
+        this.speed = speed;             
     },
     attack: function(target) {
-        target.takeDamage(this.damage);      
+        target.takeDamage(this.strength);      
     },
-    takeDamage: function(damage) {
-        this.hp -= damage;        
+    takeDamage: function(strength) {
+        this.hp -= strength;        
+    }
+});
+
+var Player = new Phaser.Class({
+    Extends: Unit,
+ 
+    initialize:
+    function Player(scene, x, y, texture, frame, hp, strength, defense, speed) {
+        Unit.call(this, scene, x, y, texture, frame,  hp, strength, defense, speed);
+        //this.flipX = true;
+        this.setScale(0.6);
     }
 });

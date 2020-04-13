@@ -20,7 +20,9 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="./assets/js/index.js"></script>
+      <script src="./assets/js/plugin/character.js"></script>
     <script>
+
     var config = {
         type: Phaser.AUTO,
         width: 950,
@@ -56,20 +58,12 @@
         this.cameras.main.flash(300);
         this.add.image(400, 300, 'background');
 
-        this.players = this.add.group([
-            {
-                key: 'player1',
-                setXY: {x: 200, y: 300},
-                setScale: {x: 0.6, y: 0.6},
+        var player1 = new Player(this, 200, 300, 'player1', "Fionna", 85, 90, 65, 70);        
+        this.add.existing(player1);
 
-            },
-            {
-                key: 'player2',
-                setXY: {x: 700, y: 300},
-                setScale: {x: -0.6, y: 0.6},
-
-            }
-        ])
+        var player2 = new Player(this, 700, 300, 'player2', "Friede", 65, 100, 50, 70);
+        player2.flipX = true;       
+        this.add.existing(player2);
     }
 
     function update () 
