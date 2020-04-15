@@ -9,13 +9,15 @@ var Unit = new Phaser.Class({
         this.maxHp = this.hp = hp;
         this.strength = strength;
         this.defense = defense;
-        this.speed = speed;             
+        this.speed = speed;          
     },
     attack: function(target) {
-        target.takeDamage(this.strength);      
+        target.maxHp -= this.strength   
     },
-    damageCalc: function(strength) {
-        this.hp -= strength;        
+    speed: function(targetSpeed) {
+        if(this.speed < targetSpeed){
+            this.attack()
+        };        
     }
 });
 
@@ -23,8 +25,8 @@ var Player = new Phaser.Class({
     Extends: Unit,
  
     initialize:
-    function Player(scene, x, y, texture, frame, hp, strength, defense, speed) {
-        Unit.call(this, scene, x, y, texture, frame,  hp, strength, defense, speed);
-        this.setScale(0.6);
+    function Player(scene, x, y, texture, name, hp, strength, defense, speed) {
+        Unit.call(this, scene, x, y, texture, name,  hp, strength, defense, speed);
+        this.setScale(0.5);
     }
 });

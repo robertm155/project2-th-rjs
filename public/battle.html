@@ -20,7 +20,8 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="./assets/js/index.js"></script>
-      <script src="./assets/js/plugin/character.js"></script>
+      <script src="./assets/js/classes/character.js"></script>
+      <script src="./assets/js/battle-logic.js"></script>
     <script>
 
     var config = {
@@ -51,6 +52,8 @@
         this.load.image('player2', 'game-art/sprites/player/mage.png');
         this.load.image('p1healthbar', 'game-art/userinterface/playerHealthbar.png');
         this.load.image('p2healthbar', 'game-art/userinterface/enemyHealthbar.png');
+        this.load.image('attackbtn', 'game-art/userinterface/Blue.png');
+        this.load.image('druid', 'game-art/sprites/enemies/druid.png');
     }
 
     function create ()
@@ -58,18 +61,28 @@
         this.cameras.main.flash(300);
         this.add.image(400, 300, 'background');
 
-        var player1 = new Player(this, 200, 300, 'player1', "Fionna", 85, 90, 65, 70);        
+        window.player1 = new Player(this, 200, 300, 'player1', "Fionna", 85, 90, 65, 77);        
         this.add.existing(player1);
 
-        var player2 = new Player(this, 700, 300, 'player2', "Friede", 65, 100, 50, 70);
-        player2.flipX = true;       
-        this.add.existing(player2);
+        window.enemy = new Player(this, 700, 300, 'druid', "Druid", 200, 100, 50, 70);     
+        this.add.existing(enemy);
+        enemy.setScale(0.6);
+        //console.log(player1.hp)
+        //console.log(enemy.hp)
+
+        var btn = this.add.image(200, 550, 'attackbtn');
+        btn.setScale(0.4);
+        btn.setInteractive();
+        btn.on('pointerout', () => priority())
+
+        window.playerHP = player1.hp;
+        window.enemyHP = enemy.hp;
+
     }
 
     function update () 
     {
-        this.add.image(200, 500, 'p1healthbar');
-        this.add.image(700, 500, 'p2healthbar');
+        
     }
     </script>
 
