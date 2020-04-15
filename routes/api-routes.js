@@ -14,6 +14,19 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/api/new", function(req, res) {
+    
+    db.characters.create({
+      Name: req.body.name,
+      Class: req.body.class,
+      Strength: req.body.strength,
+      Defense: req.body.defense,
+      Magic: req.body.magic,
+      Speed: req.body.speed
+    });
+    res.status(204).end();
+  });
+
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error

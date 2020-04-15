@@ -29,24 +29,24 @@
       </div>
 
       <div class="container mt-3">
-
+        <form>
           <div class="row">
 
             <div class="col-sm-3">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+                      <span class="input-group-text name" id="inputGroup-sizing-default">Name</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" id="name" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="what is your Name">
                   </div>
             </div>
 
             <div class="col-sm-6">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <button class="btn btn-outline-secondary" type="button">Class</button>
+                      <button class="btn btn-outline-secondary class" type="button">Class</button>
                     </div>
-                    <select class="custom-select" id="inputGroupSelect03">
+                    <select class="custom-select" id="class">
                       <option selected>Choose...</option>
                       <option value="mercenary">Mercenary</option>
                       <option value="knight">Knight</option>
@@ -61,7 +61,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="inputGroup-sizing-default">TBA</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" id="TBA" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                   </div>
             </div>
 
@@ -74,51 +74,55 @@
             <div class="col-sm-3">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroup-sizing-default">Strength</span>
+                  <span class="input-group-text strength" id="inputGroup-sizing-default">Strength</span>
                 </div>
-                <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="number" id="strength" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
             <div class="col-sm-3">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroup-sizing-default">Defence</span>
+                  <span class="input-group-text defense" id="inputGroup-sizing-default">Defence</span>
                 </div>
-                <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="number" id="defense" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
             <div class="col-sm-3">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroup-sizing-default">Magic</span>
+                  <span class="input-group-text magic" id="inputGroup-sizing-default">Magic</span>
                 </div>
-                <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="number" id="magic" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
             <div class="col-sm-3">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroup-sizing-default">Speed</span>
+                  <span class="input-group-text speed" id="inputGroup-sizing-default">Speed</span>
                 </div>
-                <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="number" id="speed" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
           </div>
         </div>
-
+      
         <div class="container mt-3">
           <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
-              <button type="button" class="btn btn-outline-success col-sm-12 generateChara">Create</button>
+              <button type="add-btn submit" class="add-btn btn btn-outline-success col-sm-12 generateChara">Create</button>
             </div>
             <div class="col-sm-3"></div>
           </div>
+
+  </form>
       </div>
+    
 
     
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="./assets/js/index.js"></script>
+      <script src="./assets/js/add.js"> </script>
+      
 </body>
 </html>
