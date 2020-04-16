@@ -41,4 +41,8 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/create.html"));
   });
 
+  app.get("/all", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/viewall.html"));
+  });
+
 };
