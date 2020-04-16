@@ -226,5 +226,55 @@ var sorcererScene = new Phaser.Class({
 });
 
 
+var attackScene = new Phaser.Class({
+    
+    Extends: Phaser.Scene,
 
+    initialize:
+
+    function attackScene ()
+    {
+        Phaser.Scene.call(this, { key: 'attackScene' });
+    },
+    preload: function ()
+    {
+        this.load.path = 'assets/';
+        this.load.image('druidAttack', 'game-art/userinterface/battle-sprites/druid-attack.png');
+        this.load.image('zombieAttack', 'game-art/userinterface/battle-sprites/zombie-attack.png');
+        this.load.image('druidAttack', 'game-art/userinterface/battle-sprites/skeleton-attack.png');
+        this.load.image('speakerAttack', 'game-art/userinterface/battle-sprites/speaker-attack.png');
+        this.load.image('knightAttack', 'game-art/userinterface/battle-sprites/knight-attack.png');
+        
+    },
+    create: function ()
+    {
+        this.cameras.main.flash(1000);
+        this.scene.bringToTop();
+
+        var enemyAttack = this.add.image(500, 150, 'druidAttack');
+        var playerAttack = this.add.image(500, 450, 'knightAttack');
+
+         if(enemyName == "Druid"){
+            enemyAttack = this.add.image(500, 150, 'druidAttack')
+         }else if (enemyHP <=0 && enemyName == "Zombie"){
+            enemyAttack = this.add.image(500, 150, 'zombieAttack')
+         }else if (enemyHP <=0 && enemyName == "Skeleton"){
+            enemyAttack = this.add.image(500, 150, 'skeletonAttack')
+         }else if (enemyHP <=0 && enemyName == "Sorcereress"){
+            enemyAttack = this.add.image(500, 150, 'speakerAttack')
+         }
+
+        enemyAttack.setInteractive()
+        playerAttack.setInteractive()
+        enemyAttack.on('pointerout', function() {
+            priority()
+            this.scene.scene.start('uiScene');
+        })
+        playerAttack.on('pointerout', function() {
+            priority()
+            this.scene.scene.start('uiScene');
+        })
+
+    }
+});
     
