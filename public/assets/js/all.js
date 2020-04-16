@@ -27,7 +27,22 @@ function tester (){
   // $( "h3" ).each(function( index ) {
   //   console.log($( this ).text() );
   // });
-  console.log(this.dbName)
+  $(".hide").css('display', "none");
+
+  var dbName;
+  var dbClass;
+  var dbHP;
+  var dbStrength;
+  var dbDefense;
+  var dbSpeed;
+
+  var playerSprite = "game-art/sprites/player/knight.png";
+  var playerAttackSprite = "game-art/userinterface/battle-sprites/knight-attack.png";
+  
+  $.getScript("./assets/js/classes/character.js");
+  $.getScript("./assets/js/battle-logic.js");
+  $.getScript("./assets/js/scenes.js");
+  $.getScript("./assets/js/game.js");
 }
 
 
