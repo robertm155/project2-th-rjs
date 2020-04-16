@@ -5,13 +5,13 @@ var charaClass = $(".charaClass")
 
 start.on("click", () => {window.location.replace("/game");})
 
-titleScreen.on("click", () => {window.location.replace("/home");})
+titleScreen.on("click", () => {window.location.replace("/members");})
 
 createChara.on("click", () => {window.location.replace("/create");})
 
 $("#view-all").on("click", () => {window.location.replace("/all");})
 
-$(".generateChara").on("click", () => {window.location.replace("/home");})
+$(".generateChara").on("click", () => {window.location.replace("/all");})
 
 $("#loginNav").on("click", () => {window.location.replace("/signup");})
 
