@@ -81,5 +81,42 @@ var playerScene = new Phaser.Class({
 });
 
 
+var druidScene = new Phaser.Class({
+    
+    Extends: Phaser.Scene,
+
+    initialize:
+
+    function druidScene ()
+    {
+        Phaser.Scene.call(this, { key: 'druidScene' });
+    },
+    preload: function ()
+    {
+        this.load.path = 'assets/';
+
+        this.load.image('background', 'game-art/bg/battleback1.png');
+        this.load.image('druid', 'game-art/sprites/enemies/druid.png');
+    },
+    create: function ()
+    {
+        //this.cameras.main.flash(1000);
+        this.scene.sendToBack();
+        this.add.image(400, 300, 'background');
+
+        window.enemy = new Player(this, 700, 300, 'druid', "Druid", 150, 80, 50, 70);     
+        this.add.existing(enemy);
+        enemy.setScale(0.6);
+
+        enemyName = window.enemy.name;
+        enemyHP = window.enemy.hp;
+        console.log(enemyHP)
+
+        //this.scene.on('pointerout', function() {
+          //  this.scene.scene.start('sorcererScene');
+        //})
+    }
+});
+
 
     
