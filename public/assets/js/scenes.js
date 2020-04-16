@@ -191,5 +191,40 @@ var skeletonScene = new Phaser.Class({
     }
 });
 
+var sorcererScene = new Phaser.Class({
+    
+    Extends: Phaser.Scene,
+
+    initialize:
+
+    function sorcererScene ()
+    {
+        Phaser.Scene.call(this, { key: 'sorcererScene' });
+    },
+    preload: function ()
+    {
+        this.load.path = 'assets/';
+
+        this.load.image('background', 'game-art/bg/battleback1.png');
+        this.load.image('sorcerer', 'game-art/sprites/enemies/death_speaker.png');
+    },
+    create: function ()
+    {
+        this.cameras.main.flash(1000);
+        this.scene.remove('skeletonScene');
+        this.scene.sendToBack();
+        this.add.image(400, 300, 'background');
+
+        window.enemy = new Player(this, 700, 300, 'sorcerer', "Sorcereress", 240, 90, 20, 60);     
+        this.add.existing(enemy);
+        enemy.setScale(0.6);
+
+        window.enemyName = enemy.name;
+        window.enemyHP = enemy.hp;
+        console.log("success")
+    }
+});
+
+
 
     
