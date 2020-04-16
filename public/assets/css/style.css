@@ -12,6 +12,10 @@ body {
   color: #ffffff;
 }
 
+.navbar {
+  background-color:transparent;
+}
+
 canvas {
   margin-left: 18%;
   margin-right: 18%;
