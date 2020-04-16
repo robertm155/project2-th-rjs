@@ -51,3 +51,35 @@ var uiScene = new Phaser.Class({
     }
 });
 
+var playerScene = new Phaser.Class({
+    
+    Extends: Phaser.Scene,
+
+    initialize:
+
+    function playerScene ()
+    {
+        Phaser.Scene.call(this, { key: 'playerScene' });
+    },
+    preload: function ()
+    {
+        this.load.path = 'assets/';
+    
+        this.load.image('player', 'game-art/sprites/player/knight.png');
+    },
+    create: function ()
+    {
+        window.player = new Player(this, 200, 300, 'player', "Fionna", 350, 70, 65, 77);        
+        this.add.existing(player);
+
+        this.scene.launch('druidScene');
+        this.scene.launch('uiScene');
+    
+        window.playerHP = player.hp;
+        console.log(playerHP)
+    }
+});
+
+
+
+    
