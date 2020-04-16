@@ -20,7 +20,8 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="./assets/js/index.js"></script>
-      <script src="./assets/js/plugin/character.js"></script>
+      <script src="./assets/js/classes/character.js"></script>
+      <script src="./assets/js/battle-logic.js"></script>
     <script>
 
     var config = {
@@ -36,12 +37,7 @@
         scene: {
             preload: preload,
             create: create,
-            update: update,
-            battleroom1: druidroom,
-            battleroom2: sorcererroom,
-            battleroom3: skeletonroom,
-            battleroom4: zombieroom,
-            battleroom5: onepunchroom,
+            update: update
         }
     };
 
@@ -72,39 +68,58 @@
 
     function create ()
     {
-        this.cameras.main.flash(300);
-        this.add.image(400, 300, 'background');
-
-        var player1 = new Player(this, 200, 300, 'player1', "Fionna", 85, 90, 65, 70);        
+        
+        window.player1 = new Player(this, 200, 300, 'player1', "Fionna", 85, 1, 65, 77);        
         this.add.existing(player1);
 
-        var player2 = new Player(this, 700, 300, 'player2', "Friede", 65, 100, 50, 70);
-        player2.flipX = true;       
-        this.add.existing(player2);
-    }
+        window.enemy = new Player(this, 700, 300, 'druid', "Druid", 1, 1, 50, 70);     
+        this.add.existing(enemy);
+        enemy.setScale(0.6);
 
-    function update () 
-    {
-        this.add.image(200, 500, 'p1healthbar');
-        this.add.image(700, 500, 'p2healthbar');
-    }
+        var sorcerer = new Player(this, 700, 300, 'sorcerer', "Merlin", 40, 80, 40, 40);
 
-    function druidroom ()
+        var hud = this.add.image(260, 515, 'hud');
+
+        var atkBtn = this.add.text(50, 480, 'Attack');
+        atkBtn.setScale(1.4);
+        atkBtn.setInteractive();
+        atkBtn.on('pointerout', () => priority())
+
+        window.playerHP = player1.hp;
+        window.enemyHP = enemy.hp;
+
+        function druidroom ()
     {
+        this.scene.start()
         this.cameras.main.flash(300);
         this.add.image(400, 300, 'druidroom');
 
-        var druid = new Player(this, 700, 300, 'druid', "Kjartan", 80, 40, 40, 40);
+        // var druid = new Player(this, 700, 300, 'druid', "Kjartan", 80, 40, 40, 40);
         this.add.existing(druid);
+
+        enemyHP = druid.hp;
+
+        if (enemyHP <= 0){
+            sorcererroom()
+        }
     }
+        druidroom();
 
     function sorcererroom ()
-    {
+    {   
         this.cameras.main.flash(300);
         this.add.image(400, 300, 'sorcererroom');
 
-        var sorcerer = new Player(this, 700, 300, 'sorcerer', "Merlin", 40, 80, 40, 40);
-        this.add.existing(sorcerer);
+        //var sorcerer = new Player(this, 700, 300, 'sorcerer', "Merlin", 40, 80, 40, 40);
+        //this.add.existing(sorcerer);
+
+        enemy = sorcerer;
+
+        enemyHP = sorcerer.hp;
+
+        if (enemyHP <= 0) {
+            console.log('SUCCESS!')
+        }
     }
 
     function skeletonroom ()
@@ -114,6 +129,10 @@
 
         var skeleton = new Player(this, 700, 300, 'skeleton', "Dr. Bones", 40, 40, 80, 40);
         this.add.existing(skeleton);
+
+        if (this.skeleton.enemyHP === 0) {
+            this.scene.start('zombieroom')
+        }
     }
 
     function zombieroom ()
@@ -123,6 +142,10 @@
 
         var zombie = new Player(this, 700, 300, 'zombie', "Walking Fred", 40, 40, 40, 80);
         this.add.existing(zombie);
+
+        if (this.zombie.enemyHP === 0) {
+            this.scene.start('onepunchroom')
+        }
     }
 
     function onepunchroom ()
@@ -132,7 +155,26 @@
 
         var onepunchman = new Player(this, 700, 300, 'onepunchman', "One Punch Man", 100000, 100000, 100000, 100000);
         this.add.existing(onepunchman);
+
+        if (this.onepunchman.enemyHP === 0) {
+            this.scene.stop('onepunchroom')
+        }
     }
+
+        
+
+    }
+
+    function update () 
+    {
+        var playerHpDisplay = this.add.text(280, 480, player1.name + "'s HP:" + playerHP);
+        playerHpDisplay.setScale(1.4);
+        var enemyHpDisplay = this.add.text(280, 500, enemy.name + "'s HP:" + enemyHP);
+        enemyHpDisplay.setScale(1.4);
+    }
+
+    
+
 
 
     </script>
