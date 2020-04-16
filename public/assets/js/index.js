@@ -3,7 +3,7 @@ var titleScreen = $("#title-link")
 var createChara = $("#chara")
 var charaClass = $(".charaClass")
 
-start.on("click", () => {window.location.replace("/game");})
+start.on("click", () => {window.location.replace("/all");})
 
 titleScreen.on("click", () => {window.location.replace("/members");})
 

@@ -46,7 +46,7 @@ var uiScene = new Phaser.Class({
             window.playerHP = player.hp;
             this.scene.launch('sorcererScene');
          }else if (enemyHP <=0 && enemyName == "Sorcereress"){
-            {window.location.replace("/home");};
+            {window.location.replace("/members");};
          }
     }
 });
