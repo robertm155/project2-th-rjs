@@ -118,5 +118,78 @@ var druidScene = new Phaser.Class({
     }
 });
 
+var zombieScene = new Phaser.Class({
+    
+    Extends: Phaser.Scene,
+
+    initialize:
+
+    function zombieScene ()
+    {
+        Phaser.Scene.call(this, { key: 'zombieScene' });
+    },
+    preload: function ()
+    {
+        this.load.path = 'assets/';
+
+        this.load.image('background', 'game-art/bg/battleback1.png');
+        this.load.image('zombie', 'game-art/sprites/enemies/zombie.png');
+    },
+    create: function ()
+    {
+        this.cameras.main.flash(1000);
+
+        this.scene.remove('druidScene');
+
+        this.scene.sendToBack();
+        this.add.image(400, 300, 'background');
+        
+
+        window.enemy = new Player(this, 700, 300, 'zombie', "Zombie", 200, 70, 40, 30);     
+        this.add.existing(enemy);
+        enemy.setScale(0.6);
+
+        window.enemyName = enemy.name;
+        window.enemyHP = enemy.hp;
+    }
+});
+
+
+var skeletonScene = new Phaser.Class({
+    
+    Extends: Phaser.Scene,
+
+    initialize:
+
+    function skeletonScene ()
+    {
+        Phaser.Scene.call(this, { key: 'skeletonScene' });
+    },
+    preload: function ()
+    {
+        this.load.path = 'assets/';
+
+        this.load.image('background', 'game-art/bg/battleback1.png');
+        this.load.image('skeleton', 'game-art/sprites/enemies/skeleton.png');
+    },
+    create: function ()
+    {
+        this.cameras.main.flash(1000);
+
+        this.scene.remove('zombieScene');
+
+        this.scene.sendToBack();
+        this.add.image(400, 300, 'background');
+        
+
+        window.enemy = new Player(this, 700, 300, 'skeleton', "Skeleton", 250, 80, 30, 90);     
+        this.add.existing(enemy);
+        enemy.setScale(0.6);
+
+        window.enemyName = enemy.name;
+        window.enemyHP = enemy.hp;
+    }
+});
+
 
     
