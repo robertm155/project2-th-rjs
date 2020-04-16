@@ -13,6 +13,15 @@ module.exports = function(app) {
       id: req.user.id
     });
   });
+  
+  app.get("/api/:characters?", function(req, res) {
+    if (req.params.characters) {
+ 
+      db.characters.findAll().then(function(result) {
+        return res.json(result);
+      });
+    }
+  });
 
   app.post("/api/new", function(req, res) {
     
