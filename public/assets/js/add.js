@@ -10,7 +10,7 @@ $(".generateChara").on("click", function(event) {
       class: $("#class").val().trim(),
       strength: $("#strength").val().trim(),
       defense: $("#defense").val().trim(),
-      magic: $("#magic").val().trim(),
+      magic: $("#hp").val().trim(),
       speed: $("#speed").val().trim()
       
     };
