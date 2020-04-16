@@ -1,31 +1,30 @@
 function priority () {
     //(player1.speed < player2.speed && player1.speed < enemy.speed) ? console.log("p1") : console.log("p2");
-    if(player1.speed > enemy.speed){
+    if(player.speed > enemy.speed){
         playerAttacks()
         enemyAttacks()
-        arbitor()
+        //reHud()
     }else{
         enemyAttacks()
         playerAttacks()
-        arbitor()
+        //arbitor()
     }
 } 
 
 function playerAttacks(){
-    enemyHP = enemyHP - player1.strength;
-    console.log(enemyHP + "left for enemy")
+    var calc = enemy.defense - player.strength;
+    var damage = Math.abs(calc)
+    //console.log(damage)
+    enemyHP = enemyHP - damage;
+    console.log(enemyHP + " left for enemy")
 }
 
 function enemyAttacks(){
-    playerHP = playerHP - enemy.strength;
-    console.log(playerHP + "left for player")
+    var calc = player.defense - enemy.strength;
+    var damage = Math.abs(calc)
+    //console.log(damage)
+    playerHP = playerHP - damage;
+    console.log(playerHP + " left for player")
 }
-
-function arbitor(){
-    if(playerHP < 0){console.log("Game Over")}
-    else if(enemyHP < 0){console.log("Victory")}
-}
- 
-//function playerWins () {(enemyHP < 0) ? console.log("player wins") : console.log("")} 
-
-//battleTransition() 
+var enemyName;
+var enemyHP;
